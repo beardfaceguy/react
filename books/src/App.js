@@ -1,30 +1,51 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BookCreate from './components/BookCreate';
 import BookList from './components/BookList';
+import axios from 'axios';
+
+const jsonServerAddress = 'http://localhost:3001/books';
+
 function App() {
   const [books, setBooks] = useState([]);
-  const editBookByID = (id, newTitle) => {
+
+  const fetchBooks = async () => {
+    const response = await axios.get(jsonServerAddress);
+
+    setBooks(response.data);
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  const editBookByID = async (id, newTitle) => {
+    const response = await axios.put(`${jsonServerAddress}/${id}`, {
+      title: newTitle,
+    });
     const editedBooks = books.map((book) => {
       if (book.id === id) {
-        return { ...book, title: newTitle };
+        return { ...book, ...response.data };
       }
       return book;
     });
     setBooks(editedBooks);
   };
-  const deleteBookByID = (id) => {
+
+  const deleteBookByID = async (id) => {
+    const response = await axios.delete(`${jsonServerAddress}/${id}`);
     const updatedBooks = books.filter((book) => {
       return book.id !== id;
     });
     setBooks(updatedBooks);
   };
-  const createBook = (title) => {
-    const updatedBook = [
-      ...books,
-      { id: Math.round(Math.random() * 9999), title },
-    ];
+
+  const createBook = async (title) => {
+    const response = await axios.post(jsonServerAddress, { title });
+
+    const updatedBook = [...books, response.data];
     setBooks(updatedBook);
   };
+
   return (
     <div className="app">
       <h1>Reading List</h1>
