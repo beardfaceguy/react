@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useCallback } from 'react';
 import axios from 'axios';
 const jsonServerAddress = 'http://localhost:3001/books';
 const BooksContext = createContext();
@@ -6,11 +6,21 @@ const BooksContext = createContext();
 function Provider({ children }) {
   const [books, setBooks] = useState([]);
 
-  const fetchBooks = async () => {
+  const fetchBooks = useCallback(async () => {
     const response = await axios.get(jsonServerAddress);
 
     setBooks(response.data);
-  };
+  }, []);
+  // useCallback returns a reference to the variable passed in as the first argument.
+  // second argument to useCallback works as follows:
+  //  empty array:
+  //    useCallback returns reference to original first arugment from first render
+  //  array with one or more elements:
+  //    if the state of any of the elements has changed, useCallback returns new version
+  //    of the first arguement.
+
+  // instead of creating a new variable with the original reference, we are just wrapping
+  // the function definition in useCallback
 
   const editBookByID = async (id, newTitle) => {
     const response = await axios.put(`${jsonServerAddress}/${id}`, {
