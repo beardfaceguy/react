@@ -1,17 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GoChevronDown } from 'react-icons/go';
 import Panel from './Panel';
 
 function Dropdown({ options, value, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
+  const divEl = useRef();
+
+  useEffect(() => {
+    const handler = (event) => {
+      if (!divEl.current) {
+        return;
+      }
+
+      if (!divEl.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handler, true);
+
+    return () => {
+      document.removeEventListener('click', handler);
+    };
+  }, []);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
 
   const handleOptionClick = (option) => {
     setIsOpen(false);
     onChange(option);
-  };
-
-  const handleToggleOpen = () => {
-    setIsOpen((currentIsOpen) => !currentIsOpen);
   };
 
   const renderedOptions = options.map((option) => {
@@ -29,10 +48,10 @@ function Dropdown({ options, value, onChange }) {
   return (
     // in the second div below, the value?.label checks whether the value object is defined or not, and returns undefined if not.
     // Combined with the boolean operator ||, this will then return the 'Select...' string.  If value is defined, it will return the label property
-    <div className="w-48 relative">
+    <div ref={divEl} className="w-48 relative">
       <Panel
         className="flex justify-between items-center cursor-pointer"
-        onClick={handleToggleOpen}
+        onClick={handleClick}
       >
         {value?.label || 'Select...'}
         <GoChevronDown className="text-lg" />
@@ -41,4 +60,5 @@ function Dropdown({ options, value, onChange }) {
     </div>
   );
 }
+
 export default Dropdown;

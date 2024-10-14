@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { GoChevronDown, GoChevronLeft } from 'react-icons/go';
+
 function Accordion({ items }) {
   const [expandedIndex, setExpandedIndex] = useState(-1);
   // this version of handleClick is written to fix a bug where if you in-code click the same section twice in a row,
@@ -19,7 +20,7 @@ function Accordion({ items }) {
     const isExpanded = index === expandedIndex;
     // conditional ? true return value : false return value
     const icon = (
-      <span className="text-xl">
+      <span className="text-2xl">
         {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
       </span>
     );
@@ -38,6 +39,7 @@ function Accordion({ items }) {
       </div>
     );
   });
+
   return <div className="border-x border-t rounded">{renderedItems}</div>;
 }
 
