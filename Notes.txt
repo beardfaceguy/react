@@ -1,0 +1,19 @@
+to create react app:
+npx create-react-app my-app
+
+
+in the app directory, make sure to edit the package.json file to include the scripts you want
+
+Changing State
+1.  Add a reducer to one of your slices that changes state in some particular way
+2.  Export the action creator that the slice automatically creates
+3.  Find the component that you want to dispatch from 
+4.  Import the action creator function and 'useDispatch' from react-redux
+5.  Call the 'useDispatch' hook to get access to the dispatch function
+6.  When the user does something, call the action creator to get an action, then dispatch it
+
+Accessing State
+1.  Find the component that needs to access some state
+2.  Import the 'useSelector' hook from 'react-redux'
+3.  Call the hook, passing the selector function
+4.  Use the state!  Anytime state changes, the component will automatically rerender
