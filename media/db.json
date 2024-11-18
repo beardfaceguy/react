@@ -1,5 +1,54 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "Myra"
+    },
+    {
+      "id": "1475",
+      "name": "Mrs. Genevieve Jenkins"
+    },
+    {
+      "id": "b4bd",
+      "name": "Penny Christiansen"
+    },
+    {
+      "id": "a41a",
+      "name": "Darnell Schiller PhD"
+    },
+    {
+      "id": "a09d",
+      "name": "Ernesto Parker"
+    },
+    {
+      "id": "f9eb",
+      "name": "Wilson Grimes"
+    },
+    {
+      "id": "ae48",
+      "name": "Cora Schaefer"
+    },
+    {
+      "id": "2fdd",
+      "name": "Mona Tillman"
+    },
+    {
+      "id": "8a44",
+      "name": "Gail Jaskolski"
+    },
+    {
+      "id": "6fd2",
+      "name": "Tim Kulas Sr."
+    },
+    {
+      "id": "897a",
+      "name": "Martin Schinner"
+    },
+    {
+      "id": "d89e",
+      "name": "Dr. Mable Romaguera"
+    }
+  ],
   "albums": [],
   "photos": []
 }
