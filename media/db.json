@@ -21,6 +21,12 @@
       "name": "Kristin Larson"
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": "123",
+      "title": "Hiking Trip",
+      "userId": "897a"
+    }
+  ],
   "photos": []
 }
