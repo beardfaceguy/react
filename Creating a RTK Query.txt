@@ -1,0 +1,13 @@
+     Creating a RTK Query API 
+
+1.  Identify a group of related requests that your app needs to make
+2.  Make a new file that will create the API
+3.  The API needs to store a tone of state related to data, request status, errors.  
+    Add a 'reducerPath'
+4.  The API needs to know how and where to send requests.  Add a 'baseQuery'
+5.  Add 'endpoints', one for each kind of request you want to make.  Reqs that 
+    read data are queries, reqs that write data are muatations
+6.  Export all the automatically generated hooks.
+7.  Connect the API to the store.  Reducer, middleware, and listeners
+8.  Export the hooks from store/index.js file
+9.  Use the generated hooks in a component

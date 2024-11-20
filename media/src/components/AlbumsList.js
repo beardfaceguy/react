@@ -4,6 +4,8 @@ import ExpandablePanel from './ExpandablePanel';
 import Button from './Button';
 
 function AlbumsList({ user }) {
+  // if multiple of the same query requests are made that still have a pending flag,
+  // RTKQ will de-deuplicate the request and only one will be sent.
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
   const [addAlbum, results] = useAddAlbumMutation();
   const handleAddAlbum = () => {

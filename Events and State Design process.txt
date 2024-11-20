@@ -1,0 +1,35 @@
+Events + State Design Process
+1.  List out what a user will do and changes they will see while using your app
+2.  Categorize each step as 'state' or 'event handler'
+		User sees something on the screen change -> We probably need state to implement this step
+		User committed some action -> We probably need an event handler to implement this.
+3.  Group common steps.  Remove duplicates.  Rewrite descriptions
+
+summary for 1, 2, and 3 above: 
+	what state + event handlers are there?
+	
+	
+	
+4.  Look at mockup.  Remove or simplify parts that aren't changing.
+5.  Replace remaining elements with text descriptions
+6.  Repeat #4 and #5 with a different variation
+7.  Imaging you have to write a function that returns the text of steps #5 and #6.  In addition to your component props, what other arguments would you need?
+
+summary for 4-7 above:
+	What name and type?
+	
+8.  Decide where each event handler + state will be defined.
+
+summary for 8:
+	Where's it defined?
+	
+	question to help answer 8 for the example of our Accordion component:
+		Does any component besides Accordion reasonably need to know which item is expanded?
+			Yes: Define in App
+			No: Define in Accordion
+	
+	React isn't good at directly communicating data between siblings
+	
+	in the case of Accordion, defined in Accordion
+	
+	Define event handlers in the same location the state resides
