@@ -23,26 +23,6 @@
   ],
   "albums": [
     {
-      "id": "123",
-      "title": "Hiking Trip",
-      "userId": "897a"
-    },
-    {
-      "id": "2c24",
-      "userId": "1475",
-      "title": "Gorgeous Frozen Salad"
-    },
-    {
-      "id": "bfed",
-      "userId": "1475",
-      "title": "Licensed Wooden Pizza"
-    },
-    {
-      "id": "941c",
-      "userId": "1475",
-      "title": "Handmade Concrete Shirt"
-    },
-    {
       "id": "15be",
       "userId": "1475",
       "title": "Electronic Frozen Pants"
@@ -51,7 +31,33 @@
       "id": "c025",
       "userId": "1475",
       "title": "Awesome Plastic Fish"
+    },
+    {
+      "id": "f61f",
+      "userId": "1475",
+      "title": "Handmade Wooden Chicken"
+    },
+    {
+      "id": "9561",
+      "userId": "1475",
+      "title": "Ergonomic Rubber Towels"
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "id": "1b92",
+      "albumId": "15be",
+      "url": "https://loremflickr.com/150/150/abstract?lock=88590"
+    },
+    {
+      "id": "aa68",
+      "albumId": "c025",
+      "url": "https://loremflickr.com/150/150/abstract?lock=86297"
+    },
+    {
+      "id": "d868",
+      "albumId": "c025",
+      "url": "https://loremflickr.com/150/150/abstract?lock=92945"
+    }
+  ]
 }
