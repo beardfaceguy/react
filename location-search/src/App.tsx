@@ -1,14 +1,19 @@
 import Map from './components/Map';
 import LocationSearch from './components/LocationSearch';
+import type { Place } from './api/Place';
+import { useState } from 'react';
 
 function App() {
+  // TODO: once app is working, trying replacing that generic with a MapProps
+  const [place, setPlace] = useState<Place | null>(null);
+
   return (
     <div className="h-screen w-screen grid grid-cols-12">
       <div className="col-span-3 p-2">
-        <LocationSearch />
+        <LocationSearch onPlaceClick={(p) => setPlace(p)} />
       </div>
       <div className="col-span-9">
-        <Map />
+        <Map place={place} />
       </div>
     </div>
   );
